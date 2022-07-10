@@ -1,4 +1,4 @@
-# gray
+# Gray
 Development of Gray hardware and software
 
 Gray is an outdoor box that contains and connects to agriculture and smart city sensors.
