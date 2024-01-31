@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "gray-footprints")(type "KiCad")(uri "${KIPRJMOD}/footprints")(options "")(descr "Gray specific footprints"))
+  (lib (name "LoRa-E5")(type "KiCad")(uri "${KIPRJMOD}/LoRa-E5_kicad/LoRa-E5.pretty")(options "")(descr ""))
+)
