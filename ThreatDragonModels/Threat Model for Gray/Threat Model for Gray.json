@@ -1,0 +1,26 @@
+{
+  "version": "2.3.0",
+  "summary": {
+    "title": "Threat Model for Gray",
+    "owner": "Anders Hedberg",
+    "description": "An IoT box placed outdoors that reports soil moisture and temperature over LoraWAN",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.3.0",
+        "cells": []
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
