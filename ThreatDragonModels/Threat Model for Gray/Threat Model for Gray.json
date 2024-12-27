@@ -31,8 +31,8 @@
                 "text": "Embedded program"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -128,12 +128,73 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d4b1159d-984d-400c-a2ee-c4611f6cecf5",
+                  "title": "Spoofing of messages from box",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "A computer or other LoraWAN sender might spoof our messages",
+                  "mitigation": "We rely on the LoraWAN protocol which include encryption to avoid spoofing.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "d4b1159d-984d-400c-a2ee-c4611f6cecf5",
+                  "title": "Tampering with the sensors",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "An attacker might remove a sensor or short circuit it",
+                  "mitigation": "If a sensor goes missing, send an error code for missing sensor.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "ed62a726-6da6-40bc-8a75-594c4914c390",
+                  "title": "Logging of extreme events",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "Extreme events should be logged, but how can we make sure we know who has done this?\n\nBattery exchanges, sensor changes.",
+                  "mitigation": "Physical seals for every person that opens the box. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "ed62a726-6da6-40bc-8a75-594c4914c390",
+                  "title": "Stealing/destroying the box",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "If the box is physically removed or violated no service will be available",
+                  "mitigation": "Sending an immediate alarm if box is removed, moved, shaken, puntured or beaten.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -377,7 +438,7 @@
               "threats": []
             },
             "labels": [
-              "Serial port"
+              "UART\n"
             ],
             "id": "3768c8f3-9b2c-4bc0-8369-63487039e106",
             "source": {
@@ -388,8 +449,44 @@
             },
             "vertices": [
               {
-                "x": 1150,
-                "y": 270
+                "x": 1210,
+                "y": 190
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Physical box",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "labels": [
+              "Physical box"
+            ],
+            "id": "42e0ab62-660b-490c-9b7d-410bf7c98184",
+            "source": {
+              "x": 610,
+              "y": 340
+            },
+            "target": {
+              "x": 1290,
+              "y": 270
+            },
+            "vertices": [
+              {
+                "x": 790,
+                "y": 320
+              },
+              {
+                "x": 1120,
+                "y": 290
               }
             ]
           },
@@ -407,8 +504,8 @@
                 "text": "Administrator"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -504,9 +601,27 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "d4b1159d-984d-400c-a2ee-c4611f6cecf5",
+                  "title": "Attacker opens box in the field and access the uart port",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "An attacker might open the box when placed outdoors and connect to the UART interface.",
+                  "mitigation": "Set an admin password to allow authentication of the admin",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -523,8 +638,8 @@
                 "text": "LoraWAN system"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -620,12 +735,34 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "fd68179b-8927-432f-99a2-abf03f3abbd4",
+                  "title": "LoraWAN gateway blocked",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Denial of service",
+                  "description": "The gateway could be blocked by radio interference, it could be blocked with two many packets from bad actor, it could be off line for other reasons",
+                  "mitigation": "Internal logging of all messages.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           }
         ]
@@ -633,6 +770,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 6
   }
 }
